@@ -8,13 +8,13 @@ if ($mod == 'login') {
     $row = $db->get_row("SELECT * FROM tb_admin WHERE user='$user' AND pass='$pass'");
     if ($row) {
         $_SESSION['login'] = $row->user;
-        redirect_js("index2.php");
+        redirect_js("index.php");
     } else {
         print_msg("Salah kombinasi username dan password.");
     }
 } elseif ($act == 'logout') {
     unset($_SESSION['login']);
-    header("location:index2.php?m=login");
+    header("location:index.php?m=login");
 } else if ($mod == 'password') {
     $pass1 = $_POST['pass1'];
     $pass2 = $_POST['pass2'];
@@ -48,7 +48,7 @@ elseif ($mod == 'alternatif_tambah') {
 
         $db->query("INSERT INTO tb_rel_alternatif(kode_alternatif, kode_atribut) 
             SELECT '$kode_alternatif', kode_atribut FROM tb_atribut");
-        redirect_js("index2.php?m=alternatif");
+        redirect_js("index.php?m=alternatif");
     }
 } else if ($mod == 'alternatif_ubah') {
     $nama_alternatif = $_POST['nama_alternatif'];
@@ -58,12 +58,12 @@ elseif ($mod == 'alternatif_tambah') {
         print_msg("Field yang bertanda * tidak boleh kosong!");
     else {
         $db->query("UPDATE tb_alternatif SET nama_alternatif='$nama_alternatif', ket_alternatif='$ket_alternatif' WHERE kode_alternatif='$_GET[ID]'");
-        redirect_js("index2.php?m=alternatif");
+        redirect_js("index.php?m=alternatif");
     }
 } else if ($act == 'alternatif_hapus') {
     $db->query("DELETE FROM tb_alternatif WHERE kode_alternatif='$_GET[ID]'");
     $db->query("DELETE FROM tb_rel_alternatif WHERE kode_alternatif='$_GET[ID]'");
-    header("location:index2.php?m=alternatif");
+    header("location:index.php?m=alternatif");
 }
 
 /** atribut */
@@ -82,7 +82,7 @@ else if ($mod == 'atribut_tambah') {
 
         $db->query("INSERT INTO tb_rel_alternatif(kode_alternatif, kode_atribut) 
             SELECT kode_alternatif, '$kode_atribut'  FROM tb_alternatif");
-        redirect_js("index2.php?m=atribut");
+        redirect_js("index.php?m=atribut");
     }
 } else if ($mod == 'atribut_ubah') {
     $nama_atribut = $_POST['nama_atribut'];
@@ -92,12 +92,12 @@ else if ($mod == 'atribut_tambah') {
         print_msg("Field bertanda * tidak boleh kosong!");
     else {
         $db->query("UPDATE tb_atribut SET nama_atribut='$nama_atribut', atribut='$atribut' WHERE kode_atribut='$_GET[ID]'");
-        redirect_js("index2.php?m=atribut");
+        redirect_js("index.php?m=atribut");
     }
 } else if ($act == 'atribut_hapus') {
     $db->query("DELETE FROM tb_atribut WHERE kode_atribut='$_GET[ID]'");
     $db->query("DELETE FROM tb_rel_alternatif WHERE kode_atribut='$_GET[ID]'");
-    header("location:index2.php?m=atribut");
+    header("location:index.php?m=atribut");
 }
 
 /** rel_alternatif */
@@ -106,5 +106,5 @@ else if ($act == 'rel_alternatif_ubah') {
         $ID = str_replace('ID-', '', $key);
         $db->query("UPDATE tb_rel_alternatif SET nilai='$value' WHERE ID='$ID'");
     }
-    header("location:index2.php?m=rel_alternatif");
+    header("location:index.php?m=rel_alternatif");
 }

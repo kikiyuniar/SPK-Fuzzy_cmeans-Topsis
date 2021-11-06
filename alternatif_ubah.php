@@ -13,8 +13,9 @@ $row = $db->get_row("SELECT * FROM tb_alternatif WHERE kode_alternatif='$_GET[ID
                 <input class="form-control" type="text" name="kode_alternatif" value="<?= $row->kode_alternatif ?>" readonly />
             </div>
             <div class="form-group">
-                <label>Judul Alternatif <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="nama_alternatif" value="<?= $row->nama_alternatif ?>" />
+                <label>Nama Kepala Rumah Tangga <span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="nama_alternatif" value="<?= $row->nama_alternatif ?>" required>
+                <!-- <textarea class="form-control" name="nama_alternatif"></textarea> -->
             </div>
             <div class="form-group">
                 <label>Keterangan</label>

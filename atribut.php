@@ -18,7 +18,7 @@
                 <tr>
                     <th>Kode</th>
                     <th>Nama Atribut</th>
-                    <th>Atribut</th>
+                    <!-- <th>Atribut</th> -->
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -29,7 +29,7 @@
                 <tr>
                     <td><?= $row->kode_atribut ?></td>
                     <td><?= $row->nama_atribut ?></td>
-                    <td><?= $row->atribut ?></td>
+                    <!-- <td><?= $row->atribut ?></td> -->
                     <td>
                         <a class="btn btn-xs btn-warning" href="?m=atribut_ubah&ID=<?= $row->kode_atribut ?>">Edit</a>
                         <a class="btn btn-xs btn-danger" href="aksi.php?act=atribut_hapus&ID=<?= $row->kode_atribut ?>" onclick="return confirm('Hapus data?')">Hapus</a>
