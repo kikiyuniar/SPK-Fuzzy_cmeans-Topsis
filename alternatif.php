@@ -19,7 +19,7 @@
             <tr>
                 <th>No</th>
                 <th>Kode</th>
-                <th>Nama Kepala Rumah Tangga</th>
+                <th>Nama</th>
                 <th>Alamat</th>
                 <th>Aksi</th>
             </tr>

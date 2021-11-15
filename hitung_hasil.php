@@ -409,7 +409,7 @@ $rel_alternatif = get_rel_alternatif($cluster);
                     <?php endforeach ?>
                     <td><?= round($pref[$key], 3) ?></td>
                 </tr>
-            <?php if ($val == 5) break;
+            <?php if ($val == 10) break;
             endforeach ?>
         </table>
     </div>

@@ -29,7 +29,6 @@ include 'functions.php';
     <script src="assets/js/exporting.js"></script>
     <script src="assets/js/highcharts-3d.js"></script>
     <script src="assets/js/jquery.min.js"></script>
-
 </head>
 
 <body id="page-top">
@@ -45,7 +44,7 @@ include 'functions.php';
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SPK DD <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SPK BLT-DD</div>
             </a>
 
             <!-- Divider -->
@@ -86,6 +85,12 @@ include 'functions.php';
                     <a class="nav-link collapsed" href="?m=hitung">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Perhitungan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="?m=password">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Password</span>
                     </a>
                 </li>
 
