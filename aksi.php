@@ -29,7 +29,7 @@ if ($mod == 'login') {
     elseif ($pass2 != $pass3)
         print_msg('Password baru dan konfirmasi password baru tidak sama.');
     elseif ($pass1 == $pass2 || $pass1 == $pass3)
-        print_msg('Password baru dan password baru sama.');
+        print_msg('Password lama dan password baru sama.');
     else {
         $db->query("UPDATE tb_admin SET pass='$pass2' WHERE user='$_SESSION[login]'");
         print_msg('Password berhasil diubah.', 'success');

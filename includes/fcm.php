@@ -264,7 +264,7 @@ class fcm
 			foreach ($this->keanggotaan as $key => $val) {
 				$this->dd("\n$key: ");
 				foreach ($val as $k => $v) {
-					$this->dd("\t" . round($v, 3));
+					$this->dd("\t" . round($v, 2));
 				}
 			}
 
@@ -273,7 +273,7 @@ class fcm
 			foreach ($this->miu_kuadat as $key => $val) {
 				$this->dd("\n$key: ");
 				foreach ($val as $k => $v) {
-					$this->dd("\t" . round($v, 3));
+					$this->dd("\t" . round($v, 2));
 				}
 			}
 
@@ -283,7 +283,7 @@ class fcm
 				foreach ($val as $k => $v) {
 					$this->dd("\n$k: ");
 					foreach ($v as $a => $b) {
-						$this->dd("\t" . round($b, 3));
+						$this->dd("\t" . round($b, 2));
 					}
 				}
 			}
@@ -293,7 +293,7 @@ class fcm
 			foreach ($this->pusat_cluster as $key => $val) {
 				$this->dd("\n$key: ");
 				foreach ($val as $k => $v) {
-					$this->dd("\t" . round($v, 3));
+					$this->dd("\t" . round($v, 2));
 				}
 			}
 
@@ -302,7 +302,7 @@ class fcm
 			foreach ($this->xv as $key => $val) {
 				$this->dd("\n$key: ");
 				foreach ($val as $k => $v) {
-					$this->dd("\t" . round($v, 3));
+					$this->dd("\t" . round($v, 2));
 				}
 			}
 
@@ -311,9 +311,9 @@ class fcm
 			foreach ($this->nilai_l as $key => $val) {
 				$this->dd("\n$key: ");
 				foreach ($val as $k => $v) {
-					$this->dd("\t" . round($v, 3));
+					$this->dd("\t" . round($v, 2));
 				}
-				$this->dd("\t:" . round(array_sum($val), 3));
+				$this->dd("\t:" . round(array_sum($val), 2));
 			}
 
 			$this->lt();
@@ -321,9 +321,9 @@ class fcm
 			foreach ($this->lt as $key => $val) {
 				$this->dd("\n$key: ");
 				foreach ($val as $k => $v) {
-					$this->dd("\t" . round($v, 3));
+					$this->dd("\t" . round($v, 2));
 				}
-				$this->dd("\t:" . round(array_sum($val), 3));
+				$this->dd("\t:" . round(array_sum($val), 2));
 			}
 
 			$fo = $this->fungsi_objektif();

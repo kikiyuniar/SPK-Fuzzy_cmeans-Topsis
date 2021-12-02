@@ -76,7 +76,7 @@ include 'functions.php';
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Components :</h6>
                             <a class="collapse-item" href="?m=alternatif">List Data Warga</a>
-                            <a class="collapse-item" href="?m=rel_alternatif">Nilai Kriteria</a>
+                            <a class="collapse-item" href="?m=rel_alternatif">Nilai Data Warga</a>
                         </div>
                     </div>
                 </li>

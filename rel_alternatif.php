@@ -11,7 +11,7 @@ foreach ($rows as $row) {
 }
 ?>
 <div class="page-header">
-    <h1>Nilai Bobot</h1>
+    <h1>Nilai Data Warga</h1>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading mb-3">

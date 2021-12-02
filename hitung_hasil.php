@@ -38,7 +38,7 @@
         <pre>
             <?php
             $fcm = new fcm($data, $maksimum, $cluster, $pembobot, $epsilon);
-            //echo '<pre>' . print_r($fcm->pusat_cluster, 1) . '</pre>';
+            // echo '<pre>' . print_r($fcm->pusat_cluster, 1) . '</pre>';
             ?>
         </pre>
     </div>
@@ -160,7 +160,7 @@
             <?php
             $no = 1;
             $ed = get_ed($fcm->pusat_cluster, $nilai);
-            $maxs = array_keys($ed, min($ed));
+            $maxs = array_keys($ed, max($ed));
             $cluster = $maxs[0];
             foreach ($fcm->pusat_cluster as $key => $val) : ?>
                 <tr>
