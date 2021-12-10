@@ -42,6 +42,7 @@ foreach ($rows as $row) {
                 // while ($d = mysqli_fetch_array($data)) { 
 
                 foreach ($data as $key => $val) : ?>
+
                     <tr>
                         <td><?= $ALTERNATIF[$key]->kode_alternatif ?></td>
                         <td><?= $ALTERNATIF[$key]->nama_alternatif ?></td>

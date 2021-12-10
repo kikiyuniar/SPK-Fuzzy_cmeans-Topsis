@@ -19,7 +19,6 @@ $row = $db->get_row("SELECT * FROM tb_atribut WHERE kode_atribut='$_GET[ID]'");
             <div class="form-group">
                 <label>Atribut <span class="text-danger">*</span></label>
                 <select class="form-control" name="atribut">
-                    <option></option>
                     <?= get_atribut_option(set_value('atribut', $row->atribut)) ?>
                 </select>
             </div>

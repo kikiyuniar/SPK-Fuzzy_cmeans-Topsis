@@ -38,4 +38,4 @@
             <?php endforeach ?>
         </table>
     </div>
-</div>njb,
+</div>
