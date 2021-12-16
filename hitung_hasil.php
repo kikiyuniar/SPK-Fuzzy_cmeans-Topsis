@@ -1,10 +1,10 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <a data-toggle="collapse" href="#c1">Data</a>
+            <a data-toggle="collapse" href="#data">Data</a>
         </h3>
     </div>
-    <div class="table-responsive collapse" id="c1">
+    <div class="table-responsive collapse" id="data">
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
@@ -31,10 +31,10 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <a data-toggle="collapse" href="#c2">Perhitungan</a>
+            <a data-toggle="collapse" href="#perhitungan">Perhitungan</a>
         </h3>
     </div>
-    <div class="panel-body collapse" id="c2">
+    <div class="panel-body collapse" id="perhitungan">
         <pre>
             <?php
             $fcm = new fcm($data, $maksimum, $cluster, $pembobot, $epsilon);
@@ -150,9 +150,6 @@
                 <tr>
                     <th>No</th>
                     <th>Cluster</th>
-                    <?php foreach ($KRITERIA as $key => $val) : ?>
-                        <th><?= $val->nama_atribut ?> : <?= $nilai[$key] ?></th>
-                    <?php endforeach ?>
                     <th>Anggota</th>
                     <th>Jarak</th>
                 </tr>
@@ -160,15 +157,12 @@
             <?php
             $no = 1;
             $ed = get_ed($fcm->pusat_cluster, $nilai);
-            $maxs = array_keys($ed, min($ed));
+            $maxs = array_keys($ed, max($ed));
             $cluster = $maxs[0];
             foreach ($fcm->pusat_cluster as $key => $val) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $key ?></td>
-                    <?php foreach ($val as $k => $v) : ?>
-                        <td><?= round($v, 3) ?></td>
-                    <?php endforeach ?>
                     <td><?= $arr[$key] ?></td>
                     <td><?= round($ed[$key], 4) ?></td>
                 </tr>
@@ -184,8 +178,7 @@
 <?php
 $data = get_hasil_analisa($cluster);
 $normal = get_nomalize($data);
-$bobot_normal = get_bobot_normal($nilai);
-$terbobot = get_nomal_terbobot($normal, $bobot_normal);
+$terbobot = get_nomal_terbobot($normal, $nilai);
 $ideal = get_solusi_ideal($terbobot);
 $jarak = get_jarak_solusi($terbobot, $ideal);
 $pref = get_preferensi($jarak);
@@ -246,7 +239,7 @@ $rel_alternatif = get_rel_alternatif($cluster);
                     <?php endforeach ?>
                 </tr>
                 <tr>
-                    <?php foreach ($bobot_normal as $key => $val) : ?>
+                    <?php foreach ($nilai as $key => $val) : ?>
                         <th><?= round($val, 4) ?></th>
                     <?php endforeach ?>
                 </tr>
@@ -329,7 +322,7 @@ $rel_alternatif = get_rel_alternatif($cluster);
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Kode</th>
+                    <th></th>
                     <th>Positif</th>
                     <th>Negatif</th>
                     <th>Preferensi</th>
@@ -350,10 +343,10 @@ $rel_alternatif = get_rel_alternatif($cluster);
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            <a data-toggle="collapse" href="#total">Hasil Referensi Pemilihan Alternatif</a>
+            <a data-toggle="collapse" href="#rank">Hasil Referensi Pemilihan Alternatif</a>
         </h3>
     </div>
-    <div class="table-responsive collapse" id="total">
+    <div class="table-responsive collapse" id="rank">
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
@@ -377,40 +370,6 @@ $rel_alternatif = get_rel_alternatif($cluster);
                     <td><?= round($pref[$key], 3) ?></td>
                 </tr>
             <?php endforeach ?>
-        </table>
-    </div>
-</div>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <a data-toggle="collapse" href="#rank">5 Besar</a>
-        </h3>
-    </div>
-    <div class="table-responsive collapse in" id="rank">
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Kode</th>
-                    <th>Nama</th>
-                    <?php foreach ($data[key($data)] as $key => $val) : ?>
-                        <th><?= $KRITERIA[$key]->nama_atribut ?></th>
-                    <?php endforeach ?>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <?php foreach ($rank as $key => $val) : ?>
-                <tr>
-                    <td><?= $val ?></td>
-                    <td><?= $key ?></td>
-                    <td><?= $ALTERNATIF[$key]->nama_alternatif ?></td>
-                    <?php foreach ($rel_alternatif[$key] as $k => $v) : ?>
-                        <td><?= $v ?></td>
-                    <?php endforeach ?>
-                    <td><?= round($pref[$key], 3) ?></td>
-                </tr>
-            <?php if ($val == 10) break;
-            endforeach ?>
         </table>
     </div>
 </div>
