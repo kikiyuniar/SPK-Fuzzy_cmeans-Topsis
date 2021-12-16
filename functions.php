@@ -52,6 +52,112 @@ function get_bobot_option($selected = '')
     return $a;
 }
 
+function get_bobot_pendapatan($selected = '')
+{
+    $atribut = array(
+        '1'  => 'Rp 14.936.000 sampai Rp 16.266.000',
+        '2'  => 'Rp 13.605.500 sampai Rp 14.935.500',
+        '3'  => 'Rp 12.275.000 sampai Rp 13.605.000',
+        '4'  => 'Rp 10.944.500 sampai Rp 12.274.500',
+        '5'  => 'Rp 9.614.000 sampai Rp 10.944.000',
+        '6'  => 'Rp 8.283.500 sampai Rp 9.613.500',
+        '7'  => 'Rp 6.953.000 sampai Rp 8.283.000',
+        '8'  => 'Rp 5.622.000 sampai Rp 6.952.500',
+        '9'  => 'Rp 4.292.000 sampai Rp 5.622.000',
+        '10' => 'Rp 2.961.000 sampai Rp 4.291.500',
+        '11' => 'Rp 1.631.000 sampai Rp 2.961.000',
+        '12' => 'Rp 300.000 sampai Rp 1.630.500',
+    );
+    $a = '';
+    foreach ($atribut as $key => $value) {
+        if ($selected == $key)
+            $a .= "<option value='$key' selected>$value</option>";
+        else
+            $a .= "<option value='$key'>$value</option>";
+    }
+    return $a;
+}
+
+function get_bobot_pengeluaran($selected = '')
+{
+    $atribut = array(
+        '1'  => 'Rp 4.455.000 sampai Rp 4.927.70',
+        '2'  => 'Rp 3.982.200 sampai Rp 4.454.930',
+        '3'  => 'Rp 3.509.400 sampai Rp 3.982.160',
+        '4'  => 'Rp 3.037.000 sampai Rp 3.509.390',
+        '5'  => 'Rp 2.564.000 sampai Rp 3.036.620',
+        '6'  => 'Rp 2.091.100 sampai Rp 2.563.850',
+        '7'  => 'Rp 1.618.400 sampai Rp 2.091.080',
+        '8'  => 'Rp 1.146.000 sampai Rp 1.618.310',
+        '9'  => 'Rp 673.000 sampai Rp 1.145.540',
+        '10' => 'Rp 200.000 sampai Rp 672.770'
+    );
+    $a = '';
+    foreach ($atribut as $key => $value) {
+        if ($selected == $key)
+            $a .= "<option value='$key' selected>$value</option>";
+        else
+            $a .= "<option value='$key'>$value</option>";
+    }
+    return $a;
+}
+function get_bobot_lahan($selected = '')
+{
+    $atribut = array(
+        '1'  => 'luas lahan 1069m2 sampai 1152m2',
+        '2'  => 'luas lahan 985m2 sampai 1068m2',
+        '3'  => 'luas lahan 901m2 sampai 984m2',
+        '4'  => 'luas lahan 817m2 sampai 900m2',
+        '5'  => 'luas lahan 733m2 sampai 816m2',
+        '6'  => 'luas lahan 649m2 sampai 732m2',
+        '7'  => 'luas lahan 565m2 sampai 648m2',
+        '8'  => 'luas lahan 481m2 sampai 564m2',
+        '9'  => 'luas lahan 397m2 sampai 480m2',
+        '10' => 'luas lahan 313m2 sampai 396m2',
+        '11' => 'luas lahan 229m2 sampai 312m2',
+        '12' => 'luas lahan 145m2 sampai 228m2',
+        '13' => 'luas lahan 60m2 sampai 144m2'
+    );
+    $a = '';
+    foreach ($atribut as $key => $value) {
+        if ($selected == $key)
+            $a .= "<option value='$key' selected>$value</option>";
+        else
+            $a .= "<option value='$key'>$value</option>";
+    }
+    return $a;
+}
+function get_bobot_status($selected = '')
+{
+    $atribut = array(
+        '1'  => 'Kepemilikan Sendiri/Orang Tua',
+        '2'  => 'Sewa'
+    );
+    $a = '';
+    foreach ($atribut as $key => $value) {
+        if ($selected == $key)
+            $a .= "<option value='$key' selected>$value</option>";
+        else
+            $a .= "<option value='$key'>$value</option>";
+    }
+    return $a;
+}
+function get_bobot_bantuan($selected = '')
+{
+    $atribut = array(
+        '1'  => 'Ya, mendapatkan bantuan',
+        '2'  => 'Tidak, mendapatkan bantuan'
+    );
+    $a = '';
+    foreach ($atribut as $key => $value) {
+        if ($selected == $key)
+            $a .= "<option value='$key' selected>$value</option>";
+        else
+            $a .= "<option value='$key'>$value</option>";
+    }
+    return $a;
+}
+
 function kode_oto($field, $table, $prefix, $length)
 {
     global $db;
