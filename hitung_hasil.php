@@ -233,7 +233,7 @@ $rel_alternatif = get_rel_alternatif($cluster);
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th rowspan="2">Kode</th>
+                    <th style="width: 50px; vertical-align:center;" rowspan="2">Kode</th>
                     <?php foreach ($KRITERIA as $key => $val) : ?>
                         <th><?= $key ?></th>
                     <?php endforeach ?>
@@ -265,7 +265,7 @@ $rel_alternatif = get_rel_alternatif($cluster);
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Kode</th>
+                    <th style="width: 50px;">Kode</th>
                     <?php foreach ($data[key($terbobot)] as $key => $val) : ?>
                         <th><?= $key ?></th>
                     <?php endforeach ?>
@@ -322,7 +322,8 @@ $rel_alternatif = get_rel_alternatif($cluster);
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th></th>
+                    <th style="width: 50px;">Kode</th>
+                    <th style="width: 20%;">Nama</th>
                     <th>Positif</th>
                     <th>Negatif</th>
                     <th>Preferensi</th>
@@ -331,6 +332,7 @@ $rel_alternatif = get_rel_alternatif($cluster);
             <?php foreach ($rank as $key => $val) : ?>
                 <tr>
                     <td><?= $key ?></td>
+                    <td><?= $ALTERNATIF[$key]->nama_alternatif ?></td>
                     <td><?= round($jarak[$key]['positif'], 5) ?></td>
                     <td><?= round($jarak[$key]['negatif'], 5) ?></td>
                     <td><?= round($pref[$key], 5) ?></td>

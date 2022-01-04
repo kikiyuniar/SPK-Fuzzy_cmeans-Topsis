@@ -19,63 +19,96 @@ else :
         <div class="panel-heading">
             <h3 class="panel-title">Atribut Alternatif</h3>
         </div>
-        <div class="panel-body">
-            <?php
-            $succes = false;
-            if ($_POST) {
-                $cluster = $_POST['cluster'];
-                $maksimum = $_POST['maksimum'];
-                $pembobot = $_POST['pembobot'];
-                $epsilon = $_POST['epsilon'];
-                $nilai = $_POST['nilai'];
-                if ($cluster < 2 || $maksimum < 10) {
-                    print_msg('Masukkan minimal 2 clustering, dan 10 iterasi');
-                } else {
-                    $succes = true;
-                }
-            } else {
-                foreach ($KRITERIA as $key => $val) {
-                    $nilai[$key] = 1;
-                }
-            }
-            ?>
-            <form method="post" action="?m=hitung#hasil">
-                <?php foreach ($KRITERIA as $key => $val) : ?>
-                    <div class="form-group">
-                        <label><?= $val->nama_atribut ?></label>
-                        <select class="form-control aw" name="nilai[<?= $key ?>]">
-                            <?= get_bobot_option($_POST['nilai'][$key]) ?>
-                        </select>
-                    </div>
-                <?php endforeach ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Pengaturan</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label>Jumlah Cluster Dicari <span class="text-danger">**</span></label>
-                            <input class="form-control aw" type="number" name="cluster" value="<?= set_value('cluster', 2) ?>" />
+        <div class="row">
+            <div class="col">
+                <div class="panel-body">
+                    <?php
+                    $succes = false;
+                    if ($_POST) {
+                        $cluster = $_POST['cluster'];
+                        $maksimum = $_POST['maksimum'];
+                        $pembobot = $_POST['pembobot'];
+                        $epsilon = $_POST['epsilon'];
+                        $nilai = $_POST['nilai'];
+                        if ($cluster < 2 || $maksimum < 10) {
+                            print_msg('Masukkan minimal 2 clustering, dan 10 iterasi');
+                        } else {
+                            $succes = true;
+                        }
+                    } else {
+                        foreach ($KRITERIA as $key => $val) {
+                            $nilai[$key] = 1;
+                        }
+                    }
+                    ?>
+                    <form method="post" action="?m=hitung#hasil">
+                        <?php foreach ($KRITERIA as $key => $val) : ?>
+                            <div class="form-group">
+                                <label><?= $val->nama_atribut ?></label>
+                                <select class="form-control aw" name="nilai[<?= $key ?>]">
+                                    <?= get_bobot_option($_POST['nilai'][$key]) ?>
+                                </select>
+                            </div>
+                        <?php endforeach ?>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Pengaturan</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label>Jumlah Cluster Dicari <span class="text-danger">**</span></label>
+                                    <input class="form-control aw" type="number" name="cluster" value="<?= set_value('cluster', 2) ?>" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Maksimum Iterasi <span class="text-danger">**</span></label>
+                                    <input class="form-control aw" type="text" name="maksimum" value="<?= set_value('maksimum', 100) ?>" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Pembobot <span class="text-danger">**</span></label>
+                                    <input class="form-control aw" type="text" name="pembobot" value="<?= set_value('pembobot', 2) ?>" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Epsilon <span class="text-danger">**</span></label>
+                                    <input class="form-control aw" type="text" name="epsilon" value="<?= set_value('epsilon', 0.000001) ?>" />
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>Maksimum Iterasi <span class="text-danger">**</span></label>
-                            <input class="form-control aw" type="text" name="maksimum" value="<?= set_value('maksimum', 100) ?>" />
+                            <button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>Proses</button>
                         </div>
-                        <div class="form-group">
-                            <label>Pembobot <span class="text-danger">**</span></label>
-                            <input class="form-control aw" type="text" name="pembobot" value="<?= set_value('pembobot', 2) ?>" />
-                        </div>
-                        <div class="form-group">
-                            <label>Epsilon <span class="text-danger">**</span></label>
-                            <input class="form-control aw" type="text" name="epsilon" value="<?= set_value('epsilon', 0.000001) ?>" />
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span>Proses</button>
-                </div>
-            </form>
+            </div>
+            <div class="col-3">
+                <ul class="list-group">
+                    <li class="p-3 mb-2 bg-primary text-white text-center list-group-item">
+                        List bobot Atribut
+                        <span class="badge badge-light badge-pill">Nilai</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Sangat Tidak Penting
+                        <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Tidak Penting
+                        <span class="badge badge-primary badge-pill">2</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Netral
+                        <span class="badge badge-primary badge-pill">3</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Penting
+                        <span class="badge badge-primary badge-pill">4</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Sangat Penting
+                        <span class="badge badge-primary badge-pill">5</span>
+                    </li>
+                </ul>
+            </div>
         </div>
+
     </div>
     <?php
     if ($succes)
